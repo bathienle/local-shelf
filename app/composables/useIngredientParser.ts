@@ -16,7 +16,7 @@ export const useIngredientParser = () => {
         const name = line.slice(quantity.length).trim();
 
         if (name) {
-          ingredients.push({ name, quantity: Number(quantity) });
+          ingredients.push({ name, quantity });
         } else {
           ingredients.push({ name: line, quantity: undefined });
         }

@@ -1,5 +1,5 @@
 <template>
-  <form class="max-w-md mx-auto p-4 border rounded shadow-sm bg-white space-y-4" @submit.prevent="handleSubmit">
+  <form class="max-w-md mx-auto p-4 border rounded shadow-sm bg-white space-y-4 self-start" @submit.prevent="handleSubmit">
     <label
       for="image-upload"
       class="flex flex-col items-center justify-center cursor-pointer border-2 border-dashed border-gray-300 rounded p-6 hover:border-blue-500 hover:bg-blue-50 transition"

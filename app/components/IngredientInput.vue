@@ -1,19 +1,17 @@
 <template>
   <div class="flex gap-2 items-center">
     <input
-      v-model="ingredientName"
+      v-model="name"
       type="text"
       placeholder="Ingredient name"
       class="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-      aria-label="Ingredient name"
       @input="onInput"
     />
     <input
-      v-model="ingredientQty"
+      v-model="quantity"
       type="text"
       placeholder="Quantity"
       class="w-24 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-      aria-label="Quantity"
       @input="onInput"
     />
   </div>
@@ -24,12 +22,15 @@ import { ref } from 'vue';
 
 import type { Ingredient } from '~/types/interfaces';
 
-const ingredientName = ref<string>('');
-const ingredientQty = ref<string>('');
+const props = defineProps<{ modelValue: Ingredient }>();
 
 const emits = defineEmits<{
-  (e: 'update:ingredient', payload: Ingredient): void
+  (e: 'update:ingredient', payload: Ingredient): void;
+  (e: 'update:modelValue', payload: Ingredient): void;
 }>();
+
+const name = ref<string>(props.modelValue?.name || '');
+const quantity = ref<string>(props.modelValue?.quantity || '');
 
 const onInput = () => {
   emits('update:ingredient', {
