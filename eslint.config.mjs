@@ -27,5 +27,6 @@ export default withNuxt({
     'space-infix-ops': 'error',
     'space-in-parens': ['error', 'never'],
     'vue/html-indent': ['error', 2],
+    'vue/html-self-closing': ['error', { html: { normal: "never", void: "always" } }],
   },
 });
