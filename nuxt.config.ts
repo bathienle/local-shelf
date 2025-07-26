@@ -8,5 +8,6 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
   ]
 })
