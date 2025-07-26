@@ -12,22 +12,22 @@ export const useStore = defineStore('store', {
 
   actions: {
     setIngredients(newIngredients: Ingredient[]) {
-      this.ingredients = newIngredients
+      this.ingredients = newIngredients;
     },
     setRecipes(newRecipes: Recipe[]) {
-      this.recipes = newRecipes
+      this.recipes = newRecipes;
     },
     setLoading(value: boolean) {
-      this.loading = value
+      this.loading = value;
     },
     setError(message: string | null) {
-      this.error = message
+      this.error = message;
     },
     clearData() {
-      this.ingredients = []
-      this.recipes = []
-      this.loading = false
-      this.error = null
+      this.ingredients = [];
+      this.recipes = [];
+      this.loading = false;
+      this.error = null;
     },
   },
 });
