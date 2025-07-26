@@ -19,5 +19,5 @@ defineProps<{
   recipes: Recipe[];
   loading: boolean;
   error: string | null;
-}>()
+}>();
 </script>
