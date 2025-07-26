@@ -4,10 +4,10 @@
       <h1>The ingredients</h1>
 
       <div class="grid grid-cols-2 gap-2">
-        <ImageUploadForm/>
+        <ImageUploadForm @submit="handleImageUpload" />
 
         <div class="space-y-4">
-          <div v-for="(ingredient, index) in ingredients" :key="index" class="flex items-center gap-2">
+          <div v-for="(ingredient, index) in ingredients" :key="ingredient" class="flex items-center gap-2">
             <div class="flex-grow flex justify-center gap-1">
               <IngredientInput
                 :model-value="ingredient"
@@ -49,6 +49,9 @@ import { ref } from 'vue';
 
 import type { Ingredient } from '~/types/interfaces';
 
+const { recognise } = useRecognise();
+const { parseIngredients } = useIngredientParser();
+
 const ingredients = ref<Ingredient[]>([]);
 
 const updateIngredient = (index: number, newIngredient: Ingredient) => {
@@ -65,5 +68,14 @@ const removeIngredient = (index: number) => {
 
 const removeAllIngredients = () => {
   ingredients.value = [];
+};
+
+const handleImageUpload = async (imageUrl: string) => {
+  const response = await recognise(imageUrl);
+  const parsedIngredients = parseIngredients(response);
+  
+  parsedIngredients.forEach((ingredient: Ingredient) => {
+    ingredients.value.push({ name: ingredient.name, quantity: '' });
+  });
 };
 </script>
