@@ -7,7 +7,7 @@
         <ImageUploadForm @submit="handleImageUpload" />
 
         <div class="space-y-4">
-          <div v-for="(ingredient, index) in ingredients" :key="ingredient" class="flex items-center gap-2">
+          <div v-for="(ingredient, index) in ingredients" :key="ingredient.name" class="flex items-center gap-2">
             <div class="flex-grow flex justify-center gap-1">
               <IngredientInput
                 :model-value="ingredient"
