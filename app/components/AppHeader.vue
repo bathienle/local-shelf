@@ -11,6 +11,9 @@
             <NuxtLink to="/" class="font-bold hover:text-blue-600 transition-colors">Home</NuxtLink>
           </li>
           <li>
+            <NuxtLink to="/ingredients" class="font-bold hover:text-blue-600 transition-colors">Ingredients</NuxtLink>
+          </li>
+          <li>
             <NuxtLink to="/" class="font-bold hover:text-blue-600 transition-colors">Recipes</NuxtLink>
           </li>
           <li>

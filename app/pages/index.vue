@@ -1,83 +1,104 @@
 <template>
-  <div class="container mx-auto px-4 max-w-screen-lg">
-    <div class="w-full text-center text-sm text-gray-500 py-4 mt-10">
-      <h1 class="text-3xl font-bold pb-6">The ingredients</h1>
+  <section class="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-blue-50 via-white to-green-50 px-6 text-center pt-20">
+    <h1 class="text-5xl font-extrabold text-blue-700 mb-4">
+      LocalShelf
+    </h1>
 
-      <div class="grid grid-cols-2 gap-2">
-        <ImageUploadForm @submit="handleImageUpload" />
+    <p class="text-xl text-gray-700 max-w-xl mb-8">
+      Scan your fridge ingredients with AI-powered OCR, then get recipe ideas instantly.
+      Save time, reduce waste, and cook smarter!
+    </p>
 
-        <div class="space-y-4">
-          <div class="space-x-2">
-            <button
-              class="block inline-flex items-center gap-2 mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-              @click="addIngredient"
-            >
-              <Icon name="uil:plus" class="text-xl" />
-              Add ingredient
-            </button>
-            <button
-              class="block inline-flex items-center gap-2 mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-              @click="removeAllIngredients"
-            >
-              <Icon name="uil:trash-alt" class="text-xl" />
-              Clear all ingredients
-            </button>
-          </div>
+    <div class="flex flex-wrap gap-6 justify-center mb-12">
+      <NuxtLink
+        to="/ingredients"
+        class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow-md transition"
+      >
+        Start Scanning
+      </NuxtLink>
 
-          <div class="max-h-80 overflow-y-auto space-y-2">
-            <div v-for="(ingredient, index) in ingredients" :key="ingredient.name" class="flex items-center gap-2">
-              <div class="flex-grow flex justify-center gap-1">
-                <IngredientInput
-                  :model-value="ingredient"
-                  @update:ingredient="(newIngredient) => updateIngredient(index, newIngredient)"
-                />
-                <button
-                  class="text-red-500 hover:text-red-700"
-                  @click="removeIngredient(index)"
-                >
-                  <Icon name="uil:trash" class="text-xl" />
-                </button>
-              </div>
-            </div>
-          </div>
+      <NuxtLink
+        to="/recipes"
+        class="px-8 py-4 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-100 transition"
+      >
+        Browse Recipes
+      </NuxtLink>
+    </div>
+
+    <section class="max-w-4xl mx-auto my-16 px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <h2 class="col-span-full text-3xl font-semibold text-blue-600">Feature Highlights</h2>
+      <p class="col-span-full mb-8 text-gray-500">Discover what makes LocalShelf powerful and unique</p>
+      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+        <Icon name="uil:robot" class="mx-auto mb-4 w-12 h-12 text-green-600" />
+        <h3 class="font-semibold mb-2">AI-powered OCR</h3>
+        <p>Extract ingredients quickly and accurately from images.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+        <Icon name="uil:edit" class="mx-auto mb-4 w-12 h-12 text-green-600" />
+        <h3 class="font-semibold mb-2">Ingredient Editor</h3>
+        <p>Adjust and refine your scanned ingredient list easily.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+        <Icon name="uil:utensils" class="mx-auto mb-4 w-12 h-12 text-green-600" />
+        <h3 class="font-semibold mb-2">Recipe Suggestions</h3>
+        <p>Get meal ideas based on what you have at home.</p>
+      </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto mb-16 px-4 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+      <h2 class="col-span-full text-3xl font-semibold text-blue-600">Step-by-Step Workflow</h2>
+      <p class="col-span-full mb-8 text-gray-500">How to go from scanning to cooking in 3 simple steps</p>
+      <div>
+        <div class="text-4xl mb-4 font-bold text-blue-600">1</div>
+        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+          <Icon name="uil:camera" class="mx-auto mb-4 w-16 h-16 text-green-600" />
+          <h4 class="font-semibold mb-2">Scan Your Fridge</h4>
+          <p class="text-gray-700">Upload or snap a photo of your fridge or recipe list.</p>
         </div>
       </div>
-    </div>
-  </div>
+      <div>
+        <div class="text-4xl mb-4 font-bold text-blue-600">2</div>
+        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+          <Icon name="uil:pen" class="mx-auto mb-4 w-16 h-16 text-green-600" />
+          <h4 class="font-semibold mb-2">Edit Ingredients</h4>
+          <p class="text-gray-700">Review, add, or remove items to perfect your ingredient list.</p>
+        </div>
+      </div>
+      <div>
+        <div class="text-4xl mb-4 font-bold text-blue-600">3</div>
+        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+          <Icon name="uil:utensils" class="mx-auto mb-4 w-16 h-16 text-green-600" />
+          <h4 class="font-semibold mb-2">Find Recipes</h4>
+          <p class="text-gray-700">Discover recipes you can make with what you have.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto mb-16 px-4 text-center">
+      <h2 class="col-span-full text-3xl font-semibold text-blue-600">Tech Stack & Tools</h2>
+      <p class="col-span-full mb-8 text-gray-500">Technologies that power LocalShelf</p>
+      <div class="flex flex-wrap justify-center gap-6 text-gray-700">
+        <div class="flex items-center gap-2 px-4 py-2 bg-white rounded shadow">
+          <Icon name="logos:vue" class="w-6 h-6 text-green-500" />
+          Vue 3
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2 bg-white rounded shadow">
+          <Icon name="logos:nuxt-icon" class="w-6 h-6 text-green-500" />
+          Nuxt 3
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2 bg-white rounded shadow">
+          <Icon name="logos:tailwindcss-icon" class="w-6 h-6 text-blue-400" />
+          TailwindCSS
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2 bg-white rounded shadow">
+          <Icon name="tabler:hexagon-3d" class="w-6 h-6 text-gray-700" />
+          Tesseract.js (OCR)
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2 bg-white rounded shadow">
+          <Icon name="hugeicons:spoon" class="w-6 h-6 text-red-600" />
+          Spoonacular API
+        </div>
+      </div>
+    </section>
+  </section>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue';
-
-import type { Ingredient } from '~/types/interfaces';
-
-const { recognise } = useRecognise();
-const { parseIngredients } = useIngredientParser();
-
-const ingredients = ref<Ingredient[]>([]);
-
-const updateIngredient = (index: number, newIngredient: Ingredient) => {
-  ingredients.value[index] = newIngredient;
-};
-
-const addIngredient = () => {
-  ingredients.value.push({ name: '', quantity: '' });
-};
-
-const removeIngredient = (index: number) => {
-  ingredients.value.splice(index, 1);
-};
-
-const removeAllIngredients = () => {
-  ingredients.value = [];
-};
-
-const handleImageUpload = async (imageUrl: string) => {
-  const response = await recognise(imageUrl);
-  const parsedIngredients = parseIngredients(response);
-  
-  parsedIngredients.forEach((ingredient: Ingredient) => {
-    ingredients.value.push({ name: ingredient.name, quantity: '' });
-  });
-};
-</script>
