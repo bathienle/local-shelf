@@ -6,7 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "lint": "eslint app --ext .ts,.vue",
+    "lint": "eslint app server --ext .ts,.vue",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
