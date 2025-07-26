@@ -25,8 +25,7 @@ import type { Ingredient } from '~/types/interfaces';
 const props = defineProps<{ modelValue: Ingredient }>();
 
 const emits = defineEmits<{
-  (e: 'update:ingredient', payload: Ingredient): void;
-  (e: 'update:modelValue', payload: Ingredient): void;
+  (e: 'update:ingredient' | 'update:modelValue', payload: Ingredient): void;
 }>();
 
 const name = ref<string>(props.modelValue?.name || '');
@@ -34,8 +33,8 @@ const quantity = ref<string>(props.modelValue?.quantity || '');
 
 const onInput = () => {
   emits('update:ingredient', {
-    name: ingredientName.value.trim(),
-    quantity: ingredientQty.value.trim(),
+    name: name.value.trim(),
+    quantity: quantity.value.trim(),
   });
 };
 </script>
