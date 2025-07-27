@@ -1,3 +1,5 @@
+import type { Recipe } from '~/types/interfaces';
+
 export default defineEventHandler(async (event) => {
   const { ingredients } = getQuery(event);
 
@@ -14,7 +16,7 @@ export default defineEventHandler(async (event) => {
     `&apiKey=${apiKey}`;
 
   try {
-    return await $fetch(url);
+    return await $fetch<Recipe[]>(url);
   } catch (error) {
     return {
       error: 'Failed to fetch recipes',

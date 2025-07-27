@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Ingredient } from '~/types/interfaces';
+import type { Ingredient, Recipe } from '~/types/interfaces';
 
 const { recognise } = useRecognise();
 const { parseIngredients } = useIngredientParser();
@@ -54,8 +54,7 @@ const handleImageUpload = async (imageUrl: string) => {
 
 const handleFindRecipes = async () => {
   const ingredients = store.ingredients.map(i => i.name).join(',');
-  const data = await $fetch('/api/recipes', { query: { ingredients } });
-  const recipes = transformApiResponse(data as any[]);
+  const recipes = await $fetch<Recipe[]>('/api/recipes', { query: { ingredients } });
   store.setRecipes(recipes);
 
   await router.push('/recipes');
