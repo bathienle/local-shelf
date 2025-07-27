@@ -1,5 +1,7 @@
 <template>
   <form class="max-w-md mx-auto p-4 border rounded shadow-sm bg-white space-y-4 self-start" @submit.prevent="handleSubmit">
+    <h1 class="text-lg font-semibold mb-4 text-blue-700">Upload an image of the ingredients list</h1>
+    
     <label
       for="image-upload"
       class="flex flex-col items-center justify-center cursor-pointer border-2 border-dashed border-gray-300 rounded p-6 hover:border-blue-500 hover:bg-blue-50 transition"
@@ -46,15 +48,17 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 
-const emit = defineEmits(['submit']);
+const emit = defineEmits<{
+  'upload-image': [payload: string];
+}>();
 
 const file = ref<File | null>(null);
-const preview = ref<string | null>(null);
+const preview = ref('');
 
 const handleSubmit = () => {
-  emit('submit', preview.value);
+  emit('upload-image', preview.value);
 };
-
+  
 const onFileChange = (event: Event) => {
   const target = event.target as HTMLInputElement;
   if (target.files && target.files[0]) {
@@ -64,7 +68,7 @@ const onFileChange = (event: Event) => {
 
 watch(file, (newFile) => {
   if (!newFile) {
-    preview.value = null;
+    preview.value = '';
     return;
   }
 
