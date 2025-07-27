@@ -10,7 +10,21 @@
           <IngredientForm @add-ingredient="handleAddIngredient" />
         </div>
 
-        <IngredientList />
+        <div class="space-y-4">
+          <h2 class="text-xl font-bold mb-2 text-blue-700 text-center">List of ingredients</h2>
+          <div class="relative h-128 border border-gray-200 rounded p-4 flex flex-col justify-between">
+            <IngredientList />
+
+            <div class="sticky bottom-0 bg-white pt-4">
+              <button
+                class="w-full px-6 py-3 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition flex items-center justify-center gap-2"
+                @click="handleFindRecipes">
+                <Icon name="uil:utensils-alt" class="text-white text-lg" />
+                <span>Find Recipes</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -22,6 +36,7 @@ import type { Ingredient } from '~/types/interfaces';
 const { recognise } = useRecognise();
 const { parseIngredients } = useIngredientParser();
 
+const router = useRouter();
 const store = useStore();
 
 const handleAddIngredient = (newIngredient: Ingredient) => {
@@ -31,9 +46,18 @@ const handleAddIngredient = (newIngredient: Ingredient) => {
 const handleImageUpload = async (imageUrl: string) => {
   const response = await recognise(imageUrl);
   const parsedIngredients = parseIngredients(response);
-  
+
   parsedIngredients.forEach((ingredient: Ingredient) => {
     store.addIngredient({ name: ingredient.name, quantity: '' });
   });
+};
+
+const handleFindRecipes = async () => {
+  const ingredients = store.ingredients.map(i => i.name).join(',');
+  const data = await $fetch('/api/recipes', { query: { ingredients } });
+  const recipes = transformApiResponse(data as any[]);
+  store.setRecipes(recipes);
+
+  await router.push('/recipes');
 };
 </script>

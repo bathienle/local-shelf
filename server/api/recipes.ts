@@ -14,8 +14,7 @@ export default defineEventHandler(async (event) => {
     `&apiKey=${apiKey}`;
 
   try {
-    const response = await $fetch(url);
-    return response;
+    return await $fetch(url);
   } catch (error) {
     return {
       error: 'Failed to fetch recipes',

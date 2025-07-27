@@ -1,7 +1,5 @@
 <template>
   <div class="space-y-4">
-    <h2 class="text-xl font-bold mb-2 text-blue-700 text-center">Your Ingredients</h2>
-
     <div v-if="store.ingredients.length === 0" class="text-gray-500 italic">
       No ingredients yet.
     </div>

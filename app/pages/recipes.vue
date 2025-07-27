@@ -10,7 +10,7 @@
         <div class="aspect-w-4 aspect-h-3 mb-4 overflow-hidden rounded">
           <img :src="recipe.image" alt="Recipe Image" class="object-cover w-full h-full" />
         </div>
-        <h2 class="text-xl font-semibold mb-2 truncate">Recipe Title</h2>
+        <h2 class="font-semibold mb-2">{{ recipe.title }}</h2>
       </article>
     </div>
   </section>
