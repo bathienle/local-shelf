@@ -49,16 +49,16 @@
 import { ref, watch } from 'vue';
 
 const emit = defineEmits<{
-  'submit': [payload: string];
+  'upload-image': [payload: string];
 }>();
 
 const file = ref<File | null>(null);
 const preview = ref('');
 
 const handleSubmit = () => {
-  emit('submit', preview.value);
+  emit('upload-image', preview.value);
 };
-
+  
 const onFileChange = (event: Event) => {
   const target = event.target as HTMLInputElement;
   if (target.files && target.files[0]) {

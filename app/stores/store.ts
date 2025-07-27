@@ -11,6 +11,9 @@ export const useStore = defineStore('store', {
   }),
 
   actions: {
+    addIngredient(newIngredient: Ingredient) {
+      this.ingredients.push(newIngredient);
+    },
     setIngredients(newIngredients: Ingredient[]) {
       this.ingredients = newIngredients;
     },
