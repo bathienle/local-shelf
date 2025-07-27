@@ -7,10 +7,7 @@
         :key="recipe.id"
         class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col"
       >
-        <div class="aspect-w-4 aspect-h-3 mb-4 overflow-hidden rounded">
-          <img :src="recipe.image" alt="Recipe Image" class="object-cover w-full h-full" />
-        </div>
-        <h2 class="font-semibold mb-2">{{ recipe.title }}</h2>
+        <RecipeCard :recipe="recipe" />
       </article>
     </div>
   </section>

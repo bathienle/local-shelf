@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
 
   const url = 'https://api.spoonacular.com/recipes/findByIngredients' +
     `?ingredients=${ingredients}` +
-    '&number=10' +
+    '&number=9' +
     `&apiKey=${apiKey}`;
 
   try {

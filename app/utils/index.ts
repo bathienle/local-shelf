@@ -1,4 +1,4 @@
-import type { Ingredient, Recipe } from "~/types/interfaces";
+import type { Ingredient, Recipe } from '~/types/interfaces';
 
 const mapIngredient = (ingredient: any): Ingredient => ({
   id: ingredient.id,
