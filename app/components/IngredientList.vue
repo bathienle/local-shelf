@@ -6,7 +6,7 @@
       No ingredients yet.
     </div>
 
-    <div class="space-y-4 max-h-96 overflow-y-auto">
+    <div class="space-y-4 max-h-96 overflow-y-auto pb-4">
       <span
         v-for="(ingredient, index) in store.ingredients"
         :key="index"
