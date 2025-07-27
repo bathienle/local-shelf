@@ -22,17 +22,15 @@ import { ref } from 'vue';
 
 import type { Ingredient } from '~/types/interfaces';
 
-const props = defineProps<{ modelValue: Ingredient }>();
-
 const emits = defineEmits<{
-  (e: 'update:ingredient' | 'update:modelValue', payload: Ingredient): void;
+  'add-ingredient': [payload: Ingredient];
 }>();
 
-const name = ref<string>(props.modelValue?.name || '');
-const quantity = ref<string>(props.modelValue?.quantity || '');
+const name = ref('');
+const quantity = ref('');
 
 const onInput = () => {
-  emits('update:ingredient', {
+  emits('add-ingredient', {
     name: name.value.trim(),
     quantity: quantity.value.trim(),
   });
