@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h3 class="text-lg font-semibold mb-4 text-blue-700">Upload an image list of ingredients</h3>
+  <section class="mb-4">
+    <h1 class="text-lg font-semibold mb-4 text-blue-700">Upload an image of the ingredients list</h1>
     
     <form class="max-w-md mx-auto p-4 border rounded shadow-sm bg-white space-y-4 self-start" @submit.prevent="handleSubmit">
       <label
@@ -44,13 +44,15 @@
         Upload
       </button>
     </form>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 
-const emit = defineEmits(['submit']);
+const emit = defineEmits<{
+  'submit': [payload: string | null];
+}>();
 
 const file = ref<File | null>(null);
 const preview = ref<string | null>(null);
