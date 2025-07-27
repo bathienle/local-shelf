@@ -1,3 +1,5 @@
+import type { Recipe } from '~/types/interfaces';
+
 export default defineEventHandler(async (event) => {
   const { ingredients } = getQuery(event);
 
@@ -10,12 +12,11 @@ export default defineEventHandler(async (event) => {
 
   const url = 'https://api.spoonacular.com/recipes/findByIngredients' +
     `?ingredients=${ingredients}` +
-    '&number=10' +
+    '&number=9' +
     `&apiKey=${apiKey}`;
 
   try {
-    const response = await $fetch(url);
-    return response;
+    return await $fetch<Recipe[]>(url);
   } catch (error) {
     return {
       error: 'Failed to fetch recipes',
