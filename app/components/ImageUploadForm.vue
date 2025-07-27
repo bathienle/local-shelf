@@ -49,11 +49,11 @@
 import { ref, watch } from 'vue';
 
 const emit = defineEmits<{
-  'submit': [payload: string | null];
+  'submit': [payload: string];
 }>();
 
 const file = ref<File | null>(null);
-const preview = ref<string | null>(null);
+const preview = ref('');
 
 const handleSubmit = () => {
   emit('submit', preview.value);
@@ -68,7 +68,7 @@ const onFileChange = (event: Event) => {
 
 watch(file, (newFile) => {
   if (!newFile) {
-    preview.value = null;
+    preview.value = '';
     return;
   }
 
