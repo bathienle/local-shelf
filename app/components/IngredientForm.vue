@@ -44,5 +44,8 @@ const handleSubmit = () => {
     name: name.value.trim(),
     quantity: quantity.value.trim(),
   });
+
+  name.value = '';
+  quantity.value = '';
 };
 </script>
