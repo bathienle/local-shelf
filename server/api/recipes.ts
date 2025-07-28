@@ -1,5 +1,3 @@
-import type { Recipe } from '~/types/interfaces';
-
 export default defineEventHandler(async (event) => {
   const { ingredients } = getQuery(event);
 

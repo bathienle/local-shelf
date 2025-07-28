@@ -30,8 +30,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import type { Ingredient } from '~/types/interfaces';
-
 const emits = defineEmits<{
   'add-ingredient': [payload: Ingredient];
 }>();
