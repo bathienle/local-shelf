@@ -1,7 +1,5 @@
 import { defineStore } from 'pinia';
 
-import type { Ingredient, Recipe } from '~/types/interfaces';
-
 export const useStore = defineStore('store', {
   state: () => ({
     ingredients: [] as Ingredient[],

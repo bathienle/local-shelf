@@ -1,5 +1,3 @@
-import type { Ingredient } from '~/types/interfaces';
-
 export const useIngredientParser = () => {
   const parseIngredients = (rawText: string): Ingredient[] => {
     const lines = rawText.split('\n').map(line => line.trim()).filter(Boolean);

@@ -33,8 +33,6 @@
 </template>
 
 <script setup lang="ts">
-import type { Recipe } from '~/types/interfaces';
-
 defineProps<{
   recipe: Recipe;
 }>();

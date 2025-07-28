@@ -31,8 +31,6 @@
 </template>
 
 <script setup lang="ts">
-import type { Ingredient, Recipe } from '~/types/interfaces';
-
 const { recognise } = useRecognise();
 const { parseIngredients } = useIngredientParser();
 
