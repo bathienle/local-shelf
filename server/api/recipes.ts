@@ -1,4 +1,16 @@
 export default defineEventHandler(async (event) => {
+  let ip = event.node.req.headers['x-forwarded-for'] || event.node.req.socket.remoteAddress || 'unknown';
+  if (Array.isArray(ip)) {
+    ip = ip[0];
+  }
+
+  if (isRateLimited(ip)) {
+    throw createError({
+      statusCode: 429,
+      statusMessage: 'Too many requests. Please wait a minute.',
+    });
+  }
+
   const { ingredients } = getQuery(event);
 
   const apiKey = process.env.SPOONACULAR_API_KEY;
