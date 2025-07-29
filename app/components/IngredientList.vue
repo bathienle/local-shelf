@@ -19,15 +19,15 @@
               placeholder="Ingredient name"
             />
             <input
-              v-model="editedQuantity"
+              v-model="editedAmount"
               type="text"
               class="w-full border rounded px-2 py-1"
-              placeholder="Quantity"
+              placeholder="Amount"
             />
           </template>
           <template v-else>
             <h2 class="font-semibold text-gray-800">{{ ingredient.name }}</h2>
-            <p class="text-gray-500 text-sm">{{ ingredient.quantity }}</p>
+            <p class="text-gray-500 text-sm">{{ ingredient.amount }}</p>
           </template>
         </div>
 
@@ -70,12 +70,12 @@ const store = useStore();
 
 const editingIndex = ref<number | null>(null);
 const editedName = ref('');
-const editedQuantity = ref('');
+const editedAmount = ref('');
 
 const edit = (index: number, ingredient: Ingredient) => {
   editingIndex.value = index;
   editedName.value = ingredient.name;
-  editedQuantity.value = ingredient.quantity || '';
+  editedAmount.value = ingredient.amount || '';
 };
 
 const save = (index: number) => {
@@ -85,7 +85,7 @@ const save = (index: number) => {
   };
 
   ingredient.name = editedName.value;
-  ingredient.quantity = editedQuantity.value;
+  ingredient.amount = editedAmount.value;
   editingIndex.value = null;
 };
 

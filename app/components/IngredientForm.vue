@@ -10,9 +10,9 @@
         class="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
       <input
-        v-model="quantity"
+        v-model="amount"
         type="text"
-        placeholder="Quantity"
+        placeholder="Amount"
         class="w-24 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
     </div>
@@ -35,15 +35,15 @@ const emits = defineEmits<{
 }>();
 
 const name = ref('');
-const quantity = ref('');
+const amount = ref('');
 
 const handleSubmit = () => {
   emits('add-ingredient', {
     name: name.value.trim(),
-    quantity: quantity.value.trim(),
+    amount: amount.value.trim(),
   });
 
   name.value = '';
-  quantity.value = '';
+  amount.value = '';
 };
 </script>

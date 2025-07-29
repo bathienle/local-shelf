@@ -46,7 +46,7 @@ const handleImageUpload = async (imageUrl: string) => {
   const parsedIngredients = parseIngredients(response);
 
   parsedIngredients.forEach((ingredient: Ingredient) => {
-    store.addIngredient({ name: ingredient.name, quantity: '' });
+    store.addIngredient({ name: ingredient.name, amount: '' });
   });
 };
 
