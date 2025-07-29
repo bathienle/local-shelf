@@ -4,17 +4,13 @@ interface RateLimitRecord {
 
 const rateLimitMap = new Map<string, RateLimitRecord>();
 
-const WINDOW_MS = 60 * 1000;
+const WINDOW_MS = 24 * 60 * 60 * 1000;
 const MAX_REQUESTS = 5;
 
-export function isRateLimited(key: string): boolean {
+export const isRateLimited = (ip: string): boolean => {
   const now = Date.now();
 
-  if (!rateLimitMap.has(key)) {
-    rateLimitMap.set(key, { timestamps: [] });
-  }
-
-  const record = rateLimitMap.get(key)!;
+  const record = rateLimitMap.get(ip) || { timestamps: [] };
 
   record.timestamps = record.timestamps.filter(ts => now - ts < WINDOW_MS);
 
@@ -23,5 +19,7 @@ export function isRateLimited(key: string): boolean {
   }
 
   record.timestamps.push(now);
+  rateLimitMap.set(ip, record);
+
   return false;
-}
+};

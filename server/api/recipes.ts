@@ -1,8 +1,5 @@
 export default defineEventHandler(async (event) => {
-  let ip = event.node.req.headers['x-forwarded-for'] || event.node.req.socket.remoteAddress || 'unknown';
-  if (Array.isArray(ip)) {
-    ip = ip[0];
-  }
+  let ip = getRequestIP(event) ?? 'unknown';
 
   if (isRateLimited(ip)) {
     throw createError({
