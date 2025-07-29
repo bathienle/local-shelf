@@ -1,4 +1,13 @@
 export default defineEventHandler(async (event) => {
+  let ip = getRequestIP(event) ?? 'unknown';
+
+  if (isRateLimited(ip)) {
+    throw createError({
+      statusCode: 429,
+      statusMessage: 'Too many requests. Please wait a minute.',
+    });
+  }
+
   const { ingredients } = getQuery(event);
 
   const apiKey = process.env.SPOONACULAR_API_KEY;
