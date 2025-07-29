@@ -1,6 +1,5 @@
 export default defineEventHandler(async (event) => {
-  let ip = getRequestIP(event) ?? 'unknown';
-
+  const ip = getRequestIP(event) ?? 'unknown';
   if (isRateLimited(ip)) {
     throw createError({
       statusCode: 429,
