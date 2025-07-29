@@ -4,50 +4,52 @@
       No ingredients yet.
     </div>
 
-    <div
-      v-for="(ingredient, index) in store.ingredients"
-      :key="index"
-      class="max-w-sm mx-auto rounded-2xl shadow-md bg-white p-4 flex flex-col text-left space-y-2"
-    >
-      <div class="flex justify-between items-center w-full">
-        <div class="w-full space-y-1">
-          <template v-if="editingIndex === index">
-            <input
-              v-model="editedName"
-              type="text"
-              class="w-full border rounded px-2 py-1"
-              placeholder="Ingredient name"
-            />
-            <input
-              v-model="editedAmount"
-              type="text"
-              class="w-full border rounded px-2 py-1"
-              placeholder="Amount"
-            />
-          </template>
-          <template v-else>
-            <h2 class="font-semibold text-gray-800">{{ ingredient.name }}</h2>
-            <p class="text-gray-500 text-sm">{{ ingredient.amount }}</p>
-          </template>
-        </div>
+    <div class="space-y-4 max-h-96 overflow-y-auto pb-4">
+      <div
+        v-for="(ingredient, index) in store.ingredients"
+        :key="index"
+        class="max-w-sm mx-auto rounded-2xl shadow-md bg-white p-4 flex flex-col text-left space-y-2"
+      >
+        <div class="flex justify-between items-center w-full">
+          <div class="w-full space-y-1">
+            <template v-if="editingIndex === index">
+              <input
+                v-model="editedName"
+                type="text"
+                class="w-full border rounded px-2 py-1"
+                placeholder="Ingredient name"
+              />
+              <input
+                v-model="editedAmount"
+                type="text"
+                class="w-full border rounded px-2 py-1"
+                placeholder="Amount"
+              />
+            </template>
+            <template v-else>
+              <h2 class="font-semibold text-gray-800">{{ ingredient.name }}</h2>
+              <p class="text-gray-500 text-sm">{{ ingredient.amount }}</p>
+            </template>
+          </div>
 
-        <div class="flex flex-row items-center gap-1 text-xl ml-4">
-          <template v-if="editingIndex === index">
-            <button class="text-green-600" @click="save(index)">
-              <Icon name="uil:check" />
-            </button>
-            <button class="text-gray-500" @click="cancel">
-              <Icon name="uil:times" />
-            </button>
-          </template>
-          <template v-else>
-            <button @click="edit(index, ingredient)">
-              <Icon name="uil:edit" />
-            </button>
-            <button class="text-red-500 hover:text-red-700 font-bold" @click="remove(index)">
-              <Icon name="uil:multiply" />
-            </button>
-          </template>
+          <div class="flex flex-row items-center gap-1 text-xl ml-4">
+            <template v-if="editingIndex === index">
+              <button class="text-green-600" @click="save(index)">
+                <Icon name="uil:check" />
+              </button>
+              <button class="text-gray-500" @click="cancel">
+                <Icon name="uil:times" />
+              </button>
+            </template>
+            <template v-else>
+              <button @click="edit(index, ingredient)">
+                <Icon name="uil:edit" />
+              </button>
+              <button class="text-red-500 hover:text-red-700 font-bold" @click="remove(index)">
+                <Icon name="uil:multiply" />
+              </button>
+            </template>
+          </div>
         </div>
       </div>
     </div>

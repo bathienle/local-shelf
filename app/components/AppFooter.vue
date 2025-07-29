@@ -9,7 +9,7 @@
         rel="noopener"
         class="text-blue-500 hover:text-blue-800 transition-colors"
       >
-        Nuxt 3
+        Nuxt 4
       </a>
       &
       <a

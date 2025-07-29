@@ -5,7 +5,7 @@
     </h1>
 
     <p class="text-xl text-gray-700 max-w-xl mb-8">
-      Scan your fridge ingredients with AI-powered OCR, then get recipe ideas instantly.
+      Scan your list of ingredients with AI-powered OCR, then get recipe ideas instantly.
       Save time, reduce waste, and cook smarter!
     </p>
 
@@ -41,7 +41,7 @@
       <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
         <Icon name="uil:utensils" class="mx-auto mb-4 w-12 h-12 text-green-600" />
         <h3 class="font-semibold mb-2">Recipe Suggestions</h3>
-        <p>Get meal ideas based on what you have at home.</p>
+        <p>Get meal ideas based on what you already have at home.</p>
       </div>
     </section>
 
@@ -53,7 +53,7 @@
         <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
           <Icon name="uil:camera" class="mx-auto mb-4 w-16 h-16 text-green-600" />
           <h4 class="font-semibold mb-2">Scan Your Fridge</h4>
-          <p class="text-gray-700">Upload or snap a photo of your fridge or recipe list.</p>
+          <p class="text-gray-700">Upload or snap a photo of your recipe list.</p>
         </div>
       </div>
       <div>
@@ -84,7 +84,7 @@
         </div>
         <div class="flex items-center gap-2 px-4 py-2 bg-white rounded shadow">
           <Icon name="logos:nuxt-icon" class="w-6 h-6 text-green-500" />
-          Nuxt 3
+          Nuxt 4
         </div>
         <div class="flex items-center gap-2 px-4 py-2 bg-white rounded shadow">
           <Icon name="logos:tailwindcss-icon" class="w-6 h-6 text-blue-400" />
