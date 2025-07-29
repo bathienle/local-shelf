@@ -1,75 +1,37 @@
-# Nuxt Minimal Starter
+# LocalShelf
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A side project to learn Nuxt, Vue, and TailwindCSS through building a web app.
 
-## Setup
+![Project Screenshot](./.github/images/LocalShelf.png)
 
-Make sure to install dependencies:
+## About the Project
+
+### Tech Stack
+
+- Nuxt: Full-stack Vue.js framework for building web apps.
+- Pinia: store management for Vue 3.
+- TailwindCSS: CSS utility framework for rapid UI design.
+
+## Live Demo
+
+This side project is running on Vercel and is available at <https://local-shelf.vercel.app/>
+
+## Getting Started
+
+To run the project locally:
 
 ```bash
-# npm
+# Clone the repo
+git clone https://github.com/bathienle/local-shelf.git
+cd local-shelf
+
+# Install dependencies
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# Start the development server
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## License
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Apache-2.0
