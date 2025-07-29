@@ -13,7 +13,7 @@
       </h3>
       <ul class="list-disc list-inside text-sm text-gray-700">
         <li v-for="ingredient in recipe.usedIngredients" :key="ingredient.id">
-          {{ ingredient.quantity ?? '' }} {{ ingredient.unit ?? '' }} {{ ingredient.name }}
+          {{ ingredient.amount }} {{ ingredient.unit }} {{ ingredient.name }}
         </li>
       </ul>
     </div>
@@ -25,7 +25,7 @@
       </h3>
       <ul class="list-disc list-inside text-sm text-gray-700">
         <li v-for="ingredient in recipe.missedIngredients" :key="ingredient.id">
-          {{ ingredient.quantity ?? '' }} {{ ingredient.unit ?? '' }} {{ ingredient.name }}
+          {{ ingredient.amount }} {{ ingredient.unit }} {{ ingredient.name }}
         </li>
       </ul>
     </div>

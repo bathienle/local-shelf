@@ -4,19 +4,19 @@ export const useIngredientParser = () => {
 
     const ingredients: Ingredient[] = [];
 
-    const quantityRegex = /^([\d.,/]+(?:\s?(?:g|kg|ml|l|pcs|pieces|to taste|tbsp|tsp))?)/i;
+    const amountRegex = /^([\d.,/]+(?:\s?(?:g|kg|ml|l|pcs|pieces|to taste|tbsp|tsp))?)/i;
 
     for (const line of lines) {
-      const quantityMatch = line.match(quantityRegex);
+      const amountMatch = line.match(amountRegex);
 
-      if (quantityMatch) {
-        const quantity = quantityMatch[0];
-        const name = line.slice(quantity.length).trim();
+      if (amountMatch) {
+        const amount = amountMatch[0];
+        const name = line.slice(amount.length).trim();
 
         if (name) {
-          ingredients.push({ name, quantity });
+          ingredients.push({ name, amount });
         } else {
-          ingredients.push({ name: line, quantity: undefined });
+          ingredients.push({ name: line, amount: undefined });
         }
       } else {
         ingredients.push({ name: line });
