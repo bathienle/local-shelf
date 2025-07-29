@@ -17,8 +17,10 @@
 
             <div class="sticky bottom-0 bg-white pt-4">
               <button
+                v-if="store.ingredients.length"
                 class="w-full px-6 py-3 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition flex items-center justify-center gap-2"
-                @click="handleFindRecipes">
+                @click="handleFindRecipes"
+              >
                 <Icon name="uil:utensils-alt" class="text-white text-lg" />
                 <span>Find Recipes</span>
               </button>
