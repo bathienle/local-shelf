@@ -53,7 +53,7 @@ const handleImageUpload = async (imageUrl: string) => {
 };
 
 const handleFindRecipes = async () => {
-  const ingredients = store.ingredients.map(i => i.name).join(',');
+  const ingredients = store.ingredients.map((i: Ingredient) => i.name).join(',');
   const recipes = await $fetch<Recipe[]>('/api/recipes', { query: { ingredients } });
   store.setRecipes(recipes);
 
