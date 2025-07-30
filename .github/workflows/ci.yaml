@@ -48,3 +48,21 @@ jobs:
 
       - name: Check type
         run: npm run type-check
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ vars.NODE_VERSION }}
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Check type
+        run: npm run test
