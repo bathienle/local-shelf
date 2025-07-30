@@ -8,6 +8,7 @@ on:
       - "app/**/*.ts"
       - "app/**/*.vue"
       - "server/**/*.ts"
+      - "tests/**/*.ts"
   push:
     branches:
       - main
