@@ -4,10 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   modules: [
-    '@nuxt/icon',
     '@nuxt/eslint',
     '@nuxt/fonts',
+    '@nuxt/icon',
+    '@nuxt/test-utils/module',
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
-  ]
-})
+  ],
+});

@@ -2,6 +2,12 @@
 import withNuxt from './.nuxt/eslint.config.mjs';
 
 export default withNuxt({
+  files: [
+    'app/**/*.ts',
+    'app/**/*.vue',
+    'server/**/*.ts',
+    'tests/**/*.ts',
+  ],
   rules: {
     'array-bracket-spacing': ['error', 'never'],
     'brace-style': ['error', '1tbs'],
@@ -27,6 +33,6 @@ export default withNuxt({
     'space-infix-ops': 'error',
     'space-in-parens': ['error', 'never'],
     'vue/html-indent': ['error', 2],
-    'vue/html-self-closing': ['error', { html: { normal: "never", void: "always" } }],
+    'vue/html-self-closing': ['error', { html: { normal: 'never', void: 'always' } }],
   },
 });
