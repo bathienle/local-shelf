@@ -10,5 +10,5 @@ export default defineNuxtConfig({
     '@nuxt/test-utils/module',
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
-  ]
+  ],
 });
